@@ -17,7 +17,7 @@ export default function NotFound() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
 
       <section className="relative z-10 w-full max-w-2xl text-center">
-        <p className="text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 md:text-9xl">
+        <p className="text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white to-white/40 md:text-9xl">
           404
         </p>
 
