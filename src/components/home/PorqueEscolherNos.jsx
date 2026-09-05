@@ -48,7 +48,7 @@ export default function PorqueEscolher() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header padronizado */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
             Por que escolher a <span className="text-blue-700">Daxorya?</span>
           </h2>
 

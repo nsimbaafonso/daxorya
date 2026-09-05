@@ -8,7 +8,7 @@ export default function MeusTermos() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tighter text-white md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold leading-tight tracking-tighter text-white md:text-5xl lg:text-6xl">
             Termos e <span className="text-cyan-400">Condições</span>
           </h1>
 
@@ -22,7 +22,7 @@ export default function MeusTermos() {
         <div className="mx-auto mt-20 max-w-4xl">
           <div className="space-y-16">
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Aceitação dos termos
               </h2>
 
@@ -35,7 +35,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Os nossos serviços
               </h2>
 
@@ -55,7 +55,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Orçamentos e pagamentos
               </h2>
 
@@ -74,7 +74,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Desenvolvimento e entrega
               </h2>
 
@@ -87,7 +87,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Responsabilidades do cliente
               </h2>
 
@@ -100,7 +100,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Propriedade intelectual
               </h2>
 
@@ -112,7 +112,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Limitação de responsabilidade
               </h2>
 
@@ -126,7 +126,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Alterações aos termos
               </h2>
 
@@ -138,7 +138,7 @@ export default function MeusTermos() {
             </section>
 
             <section className="pt-4">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Contacto
               </h2>
 
@@ -151,7 +151,6 @@ export default function MeusTermos() {
                 <Button
                   href="/#contato"
                   variant="primary"
-                  className="px-8 py-4 text-base"
                 >
                   Entrar em contacto
                 </Button>

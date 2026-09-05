@@ -8,7 +8,7 @@ export default function Politicas() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tighter text-white md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold leading-tight tracking-tighter text-white md:text-5xl lg:text-6xl">
             Política de <span className="text-cyan-400">Privacidade</span>
           </h1>
 
@@ -22,7 +22,7 @@ export default function Politicas() {
         <div className="mx-auto mt-20 max-w-4xl">
           <div className="space-y-16">
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Dados que recolhemos
               </h2>
 
@@ -43,7 +43,7 @@ export default function Politicas() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Como utilizamos os seus dados
               </h2>
 
@@ -63,7 +63,7 @@ export default function Politicas() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Proteção dos dados
               </h2>
 
@@ -75,7 +75,7 @@ export default function Politicas() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Partilha de dados
               </h2>
 
@@ -88,7 +88,7 @@ export default function Politicas() {
             </section>
 
             <section className="border-b border-white/10 pb-12">
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
                 Os seus direitos
               </h2>
 
@@ -121,7 +121,6 @@ export default function Politicas() {
                 <Button
                   href="/#contato"
                   variant="primary"
-                  className="px-8 py-4 text-base"
                 >
                   Entrar em contacto
                 </Button>

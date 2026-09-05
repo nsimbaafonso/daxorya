@@ -73,7 +73,7 @@ export default function Hero() {
               {/* Conteúdo com Efeito Reveal */}
               <div className="hero-content relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
                 <div className="max-w-3xl">
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-md">
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tighter text-white drop-shadow-md">
                     {slide.title}
                   </h1>
 

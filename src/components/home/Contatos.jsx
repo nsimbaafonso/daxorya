@@ -16,7 +16,7 @@ export default function Contatos() {
         <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:items-start">
           {/* Intro */}
           <div>
-            <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter text-slate-900 md:text-5xl">
               Vamos conversar sobre o seu{" "}
               <span className="text-blue-700">projeto</span>
             </h2>
@@ -71,7 +71,7 @@ export default function Contatos() {
           {/* Form */}
           <form className="rounded-2xl border border-slate-200 bg-white p-8 md:p-10 shadow-xl shadow-slate-200/50">
             <div className="mb-8 text-center">
-              <h3 className="text-2xl font-extrabold tracking-tight text-slate-900">
+              <h3 className="text-2xl font-bold tracking-tight text-slate-900">
                 Envie-nos uma mensagem
               </h3>
 

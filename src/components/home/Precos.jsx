@@ -77,7 +77,7 @@ export default function Precos() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header padronizado */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
             Planos para diferentes{" "}
             <span className="text-blue-700">necessidades</span>
           </h2>
@@ -119,7 +119,7 @@ export default function Precos() {
                 </h3>
 
                 <p
-                  className={`mt-4 text-3xl font-extrabold tracking-tight md:text-4xl ${
+                  className={`mt-4 text-3xl font-bold tracking-tight md:text-4xl ${
                     plan.featured ? "text-white" : "text-slate-900"
                   }`}
                 >

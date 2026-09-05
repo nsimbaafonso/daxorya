@@ -13,7 +13,7 @@ export default function Cta() {
 
           <div className="relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl lg:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
                 Tem um projeto em <span className="text-cyan-400">mente?</span>
               </h2>
 
@@ -27,7 +27,6 @@ export default function Cta() {
               <Button
                 href="/#contato"
                 variant="primary"
-                className="px-8 py-4 text-base"
               >
                 Solicitar orçamento
               </Button>

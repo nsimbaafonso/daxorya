@@ -33,7 +33,7 @@ export default function Servicos() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header da Seção */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-bold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
             Soluções digitais para o{" "}
             <span className="text-blue-700">seu negócio</span>
           </h2>
