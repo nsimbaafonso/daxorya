@@ -3,52 +3,62 @@
 import Button from "@/components/button";
 
 export default function Contatos() {
+
+  const phone = "244974636955";
+  const message = "Olá! Gostaria de saber mais sobre os serviços da Daxorya.";
+  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(
+    message,
+  )}`;
+
   return (
-    <section id="contato" className="bg-white py-20 md:py-28 lg:py-32">
+    <section id="contato" className="bg-white py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:items-start">
           {/* Intro */}
           <div>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl">
-              Vamos conversar sobre o seu projeto.
+            <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl">
+              Vamos conversar sobre o seu{" "}
+              <span className="text-blue-700">projeto</span>
             </h2>
 
-            <p className="mt-6 max-w-md text-base leading-7 text-slate-600 md:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-slate-600 md:text-lg">
               Conte-nos um pouco sobre o que pretende criar. Vamos analisar as
               suas necessidades e entrar em contacto para definir os próximos
               passos.
             </p>
 
-            <div className="mt-10 border-t border-slate-200 pt-8">
+            <div className="mt-10 border-t border-slate-200 pt-8 flex flex-col gap-6">
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-slate-200 text-blue-700">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-blue-700 shadow-sm">
                   <i className="fas fa-envelope text-sm" />
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-slate-950">Email</p>
+                  <p className="text-sm font-semibold text-slate-900">Email</p>
 
                   <a
-                    href="mailto:contacto@daxorya.com"
+                    href="mailto:daxorya@gmail.com"
                     className="mt-1 block text-sm text-slate-600 transition-colors hover:text-blue-700"
                   >
-                    contacto@daxorya.com
+                    daxorya@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="mt-6 flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-slate-200 text-blue-700">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-blue-700 shadow-sm">
                   <i className="fab fa-whatsapp text-sm" />
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-slate-950">
+                  <p className="text-sm font-semibold text-slate-900">
                     WhatsApp
                   </p>
 
                   <a
-                    href="#"
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-1 block text-sm text-slate-600 transition-colors hover:text-blue-700"
                   >
                     Falar connosco
@@ -59,13 +69,13 @@ export default function Contatos() {
           </div>
 
           {/* Form */}
-          <form className="rounded-lg border border-slate-200 p-6 md:p-8">
+          <form className="rounded-2xl border border-slate-200 bg-white p-8 md:p-10 shadow-xl shadow-slate-200/50">
             <div className="mb-8 text-center">
-              <h3 className="text-2xl font-bold tracking-tight text-slate-950">
+              <h3 className="text-2xl font-extrabold tracking-tight text-slate-900">
                 Envie-nos uma mensagem
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-slate-500">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 Preencha o formulário e entraremos em contacto consigo.
               </p>
             </div>
@@ -74,7 +84,7 @@ export default function Contatos() {
               <div>
                 <label
                   htmlFor="nome"
-                  className="text-sm font-semibold text-slate-950"
+                  className="block text-sm font-semibold text-slate-900"
                 >
                   Nome
                 </label>
@@ -84,14 +94,14 @@ export default function Contatos() {
                   name="nome"
                   type="text"
                   placeholder="O seu nome"
-                  className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700"
+                  className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/20"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="text-sm font-semibold text-slate-950"
+                  className="block text-sm font-semibold text-slate-900"
                 >
                   Email
                 </label>
@@ -101,7 +111,7 @@ export default function Contatos() {
                   name="email"
                   type="email"
                   placeholder="O seu email"
-                  className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700"
+                  className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/20"
                 />
               </div>
             </div>
@@ -109,7 +119,7 @@ export default function Contatos() {
             <div className="mt-6">
               <label
                 htmlFor="empresa"
-                className="text-sm font-semibold text-slate-950"
+                className="block text-sm font-semibold text-slate-900"
               >
                 Empresa
               </label>
@@ -119,14 +129,14 @@ export default function Contatos() {
                 name="empresa"
                 type="text"
                 placeholder="Nome da empresa"
-                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700"
+                className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/20"
               />
             </div>
 
             <div className="mt-6">
               <label
                 htmlFor="assunto"
-                className="text-sm font-semibold text-slate-950"
+                className="block text-sm font-semibold text-slate-900"
               >
                 Assunto
               </label>
@@ -136,14 +146,14 @@ export default function Contatos() {
                 name="assunto"
                 type="text"
                 placeholder="Assunto da mensagem"
-                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700"
+                className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/20"
               />
             </div>
 
             <div className="mt-6">
               <label
                 htmlFor="mensagem"
-                className="text-sm font-semibold text-slate-950"
+                className="block text-sm font-semibold text-slate-900"
               >
                 Mensagem
               </label>
@@ -153,11 +163,11 @@ export default function Contatos() {
                 name="mensagem"
                 rows={5}
                 placeholder="Descreva brevemente o que pretende criar..."
-                className="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700"
+                className="mt-2 w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/20"
               />
             </div>
 
-            <div className="mt-7">
+            <div className="mt-8">
               <Button type="submit" variant="primary" fullWidth>
                 Enviar mensagem
               </Button>

@@ -1,10 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detecta o scroll da página e ajusta o fundo do header
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+
+    // VERIFICAÇÃO IMEDIATA:
+    // Executa a função assim que o componente monta, para caso a página seja recarregada já com scroll.
+    handleScroll();
+
+    // Adiciona o listener para os próximos scrolls
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Trava o scroll do site quando o menu mobile estiver aberto
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Limpeza caso o componente seja desmontado
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
 
   const links = [
     { label: "Início", href: "/" },
@@ -16,31 +44,40 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-slate-950">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
+        scrolled || menuOpen
+          ? "bg-slate-950/90 backdrop-blur-md border-b border-white/5 py-4 shadow-lg shadow-black/40"
+          : "bg-transparent border-transparent py-6"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
           onClick={() => setMenuOpen(false)}
-          className="group flex items-center"
+          className="group relative z-50 flex items-center gap-1"
         >
-          <span className="text-2xl font-bold tracking-tight text-white">
-            Dax<span className="text-cyan-400">orya</span>
+          <span className="text-2xl font-bold tracking-tighter text-white transition-transform duration-300 group-hover:scale-105">
+            Dax
+            <span className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]">
+              orya
+            </span>
           </span>
         </Link>
 
-        {/* Navigation */}
+        {/* Navegação */}
         <nav
           className={`
-            fixed inset-0 z-40 flex flex-col items-center justify-center
-            bg-slate-950 px-8
-            transition-all duration-300
-            lg:static lg:flex lg:flex-row lg:justify-end
-            lg:gap-8 lg:bg-transparent lg:p-0
+            fixed top-0 left-0 z-40 flex h-dvh w-full flex-col items-center justify-center gap-8
+            bg-slate-950/95 backdrop-blur-2xl
+            transition-all duration-500 ease-in-out
+            lg:static lg:flex lg:h-auto lg:w-auto lg:flex-row lg:justify-end lg:gap-8
+            lg:bg-transparent lg:backdrop-blur-none lg:p-0
             ${
               menuOpen
-                ? "visible opacity-100"
-                : "invisible opacity-0 lg:visible lg:opacity-100"
+                ? "visible translate-y-0 opacity-100"
+                : "invisible -translate-y-8 opacity-0 lg:visible lg:translate-y-0 lg:opacity-100"
             }
           `}
         >
@@ -50,26 +87,34 @@ export default function Header() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`
-                py-4 text-lg font-medium text-white/60
+                group relative py-2 text-2xl font-medium tracking-wide text-white/80
                 transition-colors duration-300
                 hover:text-white
-                lg:py-0 lg:text-sm
-                ${index === 0 ? "text-white lg:text-cyan-400" : ""}
+                lg:py-0 lg:text-sm lg:text-white/70
+                ${index === 0 ? "text-white" : ""}
               `}
             >
               {link.label}
+              {/* Underline animado - Escondido no mobile, ativo no desktop */}
+              <span className="absolute -bottom-1 left-0 hidden h-0.5 w-0 rounded-full bg-cyan-400 transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(34,211,238,0.5)] lg:block"></span>
             </Link>
           ))}
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Botão Menu Mobile */}
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-          className="relative z-50 flex items-center justify-center text-white transition-colors duration-300 hover:text-cyan-400 lg:hidden"
+          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white transition-all duration-300 hover:bg-white/10 hover:text-cyan-400 lg:hidden"
         >
-          <i className={`fas ${menuOpen ? "fa-xmark" : "fa-bars"} text-lg`} />
+          <i
+            className={`fas ${
+              menuOpen ? "fa-xmark" : "fa-bars"
+            } text-lg transition-transform duration-300 ${
+              menuOpen ? "rotate-90 scale-110" : "rotate-0"
+            }`}
+          />
         </button>
       </div>
     </header>

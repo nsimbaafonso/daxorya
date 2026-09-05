@@ -25,32 +25,33 @@ export default function Processo() {
   ];
 
   return (
-    <section id="processo" className="bg-white py-20 md:py-28 lg:py-32">
+    <section id="processo" className="bg-white py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
+        {/* Header da Seção */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            Do primeiro contacto à entrega.
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+            Do primeiro contacto à{" "}
+            <span className="text-blue-700">entrega</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             Um processo simples e transparente para transformar a sua ideia numa
             solução digital.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="mt-16 grid border-t border-slate-200 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid border-t border-slate-200 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <div
               key={step.title}
-              className="border-b border-slate-200 py-8 md:px-6 md:py-10 lg:border-r lg:px-8 lg:last:border-r-0"
+              className="group border-b border-r border-slate-200 p-8 transition-colors duration-300 hover:bg-slate-50/60 md:p-10 lg:last:border-r-0"
             >
-              <h3 className="text-xl font-semibold tracking-tight text-slate-950 md:text-2xl">
+              <h3 className="text-lg font-semibold tracking-tight text-slate-900 md:text-xl">
                 {step.title}
               </h3>
 
-              <p className="mt-4 text-sm leading-6 text-slate-600 md:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
                 {step.description}
               </p>
             </div>

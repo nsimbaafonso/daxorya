@@ -18,15 +18,15 @@ export default function Hero() {
   const slides = [
     {
       image: HeroBg1,
-      title: "Uma presença digital à altura do seu negócio.",
+      title: "Uma presença digital à altura do seu negócio",
     },
     {
       image: HeroBg2,
-      title: "Sites pensados para apresentar o seu negócio.",
+      title: "Sites pensados para apresentar o seu negócio",
     },
     {
       image: HeroBg3,
-      title: "Transformamos ideias em experiências digitais.",
+      title: "Transformamos ideias em experiências digitais",
     },
   ];
 
@@ -43,43 +43,46 @@ export default function Hero() {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
-        speed={1400}
+        speed={1400} // Transição suave entre as fotos
         pagination={{
           clickable: true,
         }}
         loop
         grabCursor={true}
-        className="hero-swiper h-[calc(100vh-80px)] min-h-170"
+        className="hero-swiper h-dvh min-h-150 w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative flex h-full min-h-170 items-center">
-              {/* Image */}
-              <Image
-                src={slide.image}
-                alt=""
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className="object-cover"
-              />
+            <div className="relative flex h-full w-full items-center">
+              {/* Imagem com Efeito Ken Burns (Zoom Lento) */}
+              <div className="absolute inset-0 h-full w-full overflow-hidden">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="hero-image object-cover"
+                />
+              </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-slate-950/40" />
+              {/* Overlays (Fundo Premium) */}
+              <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-slate-950/30" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent opacity-90" />
 
-              {/* Content */}
-              <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+              {/* Conteúdo com Efeito Reveal */}
+              <div className="hero-content relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
                 <div className="max-w-3xl">
-                  <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-md">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-6 max-w-xl text-base leading-7 text-white/65 md:text-lg">
+                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
                     Criamos sites modernos, funcionais e pensados para ajudar
-                    empresas a comunicar melhor o seu valor online.
+                    empresas a comunicar melhor o seu valor online
                   </p>
 
-                  <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                  <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                     <Button href="/#contato">Falar sobre um projeto</Button>
 
                     <Button href="/#projetos" variant="secondary">
@@ -93,34 +96,63 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Swiper customization */}
+      {/* Estilos customizados e Animações */}
       <style jsx global>{`
+        /* Animação do Texto (Reveal Effect) */
+        .swiper-slide .hero-content {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: none; /* Reseta quando não está ativo */
+        }
+        .swiper-slide-active .hero-content {
+          opacity: 1;
+          transform: translateY(0);
+          transition:
+            opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s,
+            transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+        }
+
+        /* Efeito Ken Burns na Imagem (Zoom muito lento) */
+        .swiper-slide .hero-image {
+          transform: scale(1);
+          transition: transform 10s ease-out;
+        }
+        .swiper-slide-active .hero-image {
+          transform: scale(1.08);
+          transition: transform 10s ease-out;
+        }
+
+        /* Paginação Customizada Premium */
         .hero-swiper .swiper-pagination {
-          bottom: 36px;
-          left: 50%;
-          width: auto;
+          bottom: 40px !important;
+          left: 50% !important;
+          width: auto !important;
           transform: translateX(-50%);
           display: flex;
           align-items: center;
-          gap: 7px;
+          gap: 8px;
+          z-index: 20;
         }
 
         .hero-swiper .swiper-pagination-bullet {
-          width: 6px;
-          height: 6px;
+          width: 8px;
+          height: 8px;
           margin: 0 !important;
-          opacity: 0.35;
+          opacity: 0.3;
           background: #ffffff;
-          transition:
-            width 400ms ease,
-            opacity 400ms ease;
+          border-radius: 999px;
+          transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-swiper .swiper-pagination-bullet:hover {
+          opacity: 0.6;
         }
 
         .hero-swiper .swiper-pagination-bullet-active {
-          width: 24px;
-          border-radius: 999px;
+          width: 32px;
           opacity: 1;
-          background: #03befd;
+          background: #22d3ee; /* cyan-400 */
+          box-shadow: 0 0 12px rgba(34, 211, 238, 0.6); /* Glow premium */
         }
       `}</style>
     </section>

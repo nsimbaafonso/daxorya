@@ -1,6 +1,11 @@
 "use client";
 
+import { useState, useRef } from "react";
+
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const contentRefs = useRef([]);
+
   const faqs = [
     {
       question: "O que está incluído nos serviços?",
@@ -29,41 +34,69 @@ export default function Faq() {
     },
   ];
 
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section id="faq" className="bg-slate-50 py-20 md:py-28 lg:py-32">
+    <section id="faq" className="bg-slate-50 py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        {/* Header */}
+        {/* Header padronizado */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            Perguntas frequentes.
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+            Perguntas <span className="text-blue-700">frequentes</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             Algumas respostas para as dúvidas mais comuns antes de começar um
             projeto connosco.
           </p>
         </div>
 
-        {/* FAQ */}
-        <div className="mx-auto mt-16 max-w-3xl border-t border-slate-200">
-          {faqs.map((faq) => (
-            <details
-              key={faq.question}
-              className="group border-b border-slate-200"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left text-base font-semibold text-slate-950 md:py-7 md:text-lg">
-                <span>{faq.question}</span>
+        {/* FAQ com transição suave */}
+        <div className="mx-auto mt-20 max-w-3xl border-t border-slate-200">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 text-slate-500 transition-colors duration-300 group-open:border-blue-700 group-open:text-blue-700">
-                  <i className="fas fa-plus text-xs transition-transform duration-300 group-open:rotate-45" />
-                </span>
-              </summary>
+            return (
+              <div key={faq.question} className="border-b border-slate-200">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="group flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left text-base font-semibold text-slate-900 transition-colors duration-300 hover:text-blue-700 md:py-7 md:text-lg"
+                >
+                  <span>{faq.question}</span>
 
-              <div className="max-w-2xl pb-6 pr-12 text-sm leading-6 text-slate-600 md:pb-7 md:text-base">
-                {faq.answer}
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-all duration-300 ${
+                      isOpen
+                        ? "border-blue-700 bg-blue-700 text-white"
+                        : "group-hover:border-blue-700/50"
+                    }`}
+                  >
+                    <i
+                      className={`fas fa-plus text-xs transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                    />
+                  </span>
+                </button>
+
+                <div
+                  ref={(el) => (contentRefs.current[index] = el)}
+                  style={{
+                    maxHeight: isOpen
+                      ? `${contentRefs.current[index]?.scrollHeight || 200}px`
+                      : "0px",
+                  }}
+                  className="overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div className="max-w-2xl pb-6 pr-12 text-sm leading-relaxed text-slate-600 md:pb-7 md:text-base">
+                    {faq.answer}
+                  </div>
+                </div>
               </div>
-            </details>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

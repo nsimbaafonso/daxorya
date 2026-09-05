@@ -34,15 +34,15 @@ export default function Projetos() {
   ];
 
   return (
-    <section id="projetos" className="bg-slate-50 py-20 md:py-28 lg:py-32">
+    <section id="projetos" className="bg-slate-50 py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
+        {/* Header padronizado */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            Projetos que falam por nós.
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+            Projetos que falam por <span className="text-blue-700">nós</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             Conheça alguns dos projetos que desenvolvemos para criar
             experiências digitais modernas e profissionais.
           </p>
@@ -52,12 +52,12 @@ export default function Projetos() {
         <LightGallery
           speed={500}
           selector=".project-gallery"
-          elementClassNames="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          elementClassNames="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
             <div
               key={project.title}
-              className="overflow-hidden rounded-lg border border-slate-200 bg-white"
+              className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:border-blue-700/30 hover:shadow-xl hover:shadow-slate-200/50"
             >
               {/* Image / LightGallery */}
               <a
@@ -76,7 +76,7 @@ export default function Projetos() {
                   />
 
                   <div className="absolute inset-0 flex items-center justify-center bg-slate-950/0 transition-colors duration-300 group-hover:bg-slate-950/40">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-950 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100 shadow-lg">
                       <i className="fas fa-expand text-sm" />
                     </span>
                   </div>
@@ -84,12 +84,12 @@ export default function Projetos() {
               </a>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold tracking-tight text-slate-950">
+              <div className="p-8">
+                <h3 className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
                   {project.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
                   {project.description}
                 </p>
 
@@ -97,7 +97,7 @@ export default function Projetos() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition-colors duration-300 hover:text-blue-600"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition-colors duration-300 hover:text-blue-800"
                 >
                   Ver projeto
                   <i className="fas fa-arrow-up-right-from-square text-xs" />

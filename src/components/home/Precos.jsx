@@ -73,42 +73,43 @@ export default function Precos() {
   ];
 
   return (
-    <section id="precos" className="bg-white py-20 md:py-28 lg:py-32">
+    <section id="precos" className="bg-white py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
+        {/* Header padronizado */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
-            Planos para diferentes necessidades.
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tighter text-slate-900 md:text-5xl lg:text-6xl">
+            Planos para diferentes{" "}
+            <span className="text-blue-700">necessidades</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             Escolha a solução que melhor se adapta ao seu negócio ou fale
             connosco para criar um projeto à medida.
           </p>
         </div>
 
         {/* Plans */}
-        <div className="mt-16 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-20 grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col overflow-hidden rounded-lg border p-6 md:p-8 ${
+              className={`relative flex flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-300 md:p-10 ${
                 plan.featured
-                  ? "border-blue-700 bg-slate-950"
-                  : "border-slate-200 bg-white"
+                  ? "border-blue-700 bg-slate-950 shadow-2xl shadow-slate-950/20 lg:-translate-y-2"
+                  : "border-slate-200 bg-white shadow-xl shadow-slate-200/50 hover:border-blue-700/30"
               }`}
             >
-              {/* Featured */}
+              {/* Featured Badge */}
               {plan.featured && (
-                <div className="absolute inset-x-0 top-0 flex items-center justify-center bg-blue-700 px-4 py-2">
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-white">
+                <div className="absolute inset-x-0 top-0 flex items-center justify-center bg-blue-700 px-4 py-2.5">
+                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-white">
                     Mais escolhido
                   </span>
                 </div>
               )}
 
-              {/* Plan */}
-              <div className={plan.featured ? "pt-8" : ""}>
+              {/* Plan Header */}
+              <div className={plan.featured ? "pt-6" : ""}>
                 <h3
                   className={`text-sm font-semibold tracking-wider ${
                     plan.featured ? "text-cyan-400" : "text-blue-700"
@@ -118,15 +119,15 @@ export default function Precos() {
                 </h3>
 
                 <p
-                  className={`mt-6 text-3xl font-bold tracking-tight md:text-4xl ${
-                    plan.featured ? "text-white" : "text-slate-950"
+                  className={`mt-4 text-3xl font-extrabold tracking-tight md:text-4xl ${
+                    plan.featured ? "text-white" : "text-slate-900"
                   }`}
                 >
                   {plan.price}
                 </p>
 
                 <p
-                  className={`mt-4 min-h-12 text-sm leading-6 ${
+                  className={`mt-3 min-h-12 text-sm leading-relaxed ${
                     plan.featured ? "text-white/60" : "text-slate-600"
                   }`}
                 >
@@ -140,7 +141,7 @@ export default function Precos() {
                   plan.featured ? "border-white/10" : "border-slate-200"
                 }`}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3.5">
                   {plan.features.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <i
@@ -150,8 +151,8 @@ export default function Precos() {
                       />
 
                       <span
-                        className={`text-sm leading-5 ${
-                          plan.featured ? "text-white/65" : "text-slate-600"
+                        className={`text-sm leading-relaxed ${
+                          plan.featured ? "text-white/70" : "text-slate-600"
                         }`}
                       >
                         {feature}
@@ -163,7 +164,7 @@ export default function Precos() {
 
               {/* CTA */}
               <div className="mt-8">
-                <Button href="/#contato" variant="primary" className="w-full">
+                <Button href="/#contato" variant={"primary"} fullWidth>
                   {plan.name === "PERSONALIZADO"
                     ? "Falar sobre o projeto"
                     : "Escolher plano"}
@@ -173,7 +174,7 @@ export default function Precos() {
               {/* Note */}
               {plan.note && (
                 <p
-                  className={`mt-5 text-xs leading-5 ${
+                  className={`mt-4 text-xs leading-relaxed ${
                     plan.featured ? "text-white/40" : "text-slate-500"
                   }`}
                 >
